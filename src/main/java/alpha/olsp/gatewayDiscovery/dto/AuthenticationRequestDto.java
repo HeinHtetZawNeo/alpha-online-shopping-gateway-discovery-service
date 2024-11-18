@@ -1,7 +1,7 @@
 package alpha.olsp.gatewayDiscovery.dto;
 
-public record AuthenticationRequest(
-        String username,
+public record AuthenticationRequestDto(
+        String email,
         String password
 ) {
 }

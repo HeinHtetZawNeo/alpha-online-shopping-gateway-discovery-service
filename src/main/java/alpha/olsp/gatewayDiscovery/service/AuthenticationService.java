@@ -3,7 +3,7 @@ package alpha.olsp.gatewayDiscovery.service;
 
 import alpha.olsp.gatewayDiscovery.dto.RegisterRequest;
 import alpha.olsp.gatewayDiscovery.config.JwtService;
-import alpha.olsp.gatewayDiscovery.dto.AuthenticationRequest;
+import alpha.olsp.gatewayDiscovery.dto.AuthenticationRequestDto;
 import alpha.olsp.gatewayDiscovery.dto.AuthenticationResponse;
 import alpha.olsp.gatewayDiscovery.user.User;
 import alpha.olsp.gatewayDiscovery.repository.UserRepository;
@@ -41,10 +41,10 @@ public class AuthenticationService {
         return new AuthenticationResponse(token);
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
+    public AuthenticationResponse authenticate(AuthenticationRequestDto authenticationRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        authenticationRequest.username(),
+                        authenticationRequest.email(),
                         authenticationRequest.password()
                 )
         );
